@@ -1,0 +1,41 @@
+.vacationRequest{
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 600px;
+
+  div{
+
+    border: solid black 1px;
+    padding-left: 10px;
+  }
+  div:first-child{
+    width: 30px;
+  }
+  div:nth-child(2){
+    width: 200px;
+  }
+  div:nth-child(3),div:nth-child(4){
+    padding-right: 10px;
+  }
+  div:nth-child(5){
+    width: 30px;
+  }
+  div:nth-child(6){
+    width: 35px;
+    background-color: greenyellow;
+    &:hover{
+      background-color: yellow;
+      cursor: pointer;
+    }
+  }
+  div:nth-child(7){
+    width: 35px;
+    background-color: orange;
+    &:hover{
+      background-color: red;
+      cursor: pointer;
+    }
+  }
+}

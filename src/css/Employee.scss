@@ -1,0 +1,29 @@
+.employee {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #808080;
+    width: (160*5+20)px;
+    border-radius: 5px;
+    border: solid #111111;
+    margin-top: 1em;
+    div { 
+        margin: 1em 1em 1em 1em;
+        button {
+            height: 2em;
+        }
+    }
+
+    &:hover{
+        background-color: #c1bebe;
+        cursor: pointer;
+    }
+}
+
+.employeeId{
+    width: 20px;
+}
+
+.employeeBigField{
+    width: 160px;
+}

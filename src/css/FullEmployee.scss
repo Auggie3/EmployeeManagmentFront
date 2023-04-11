@@ -1,0 +1,165 @@
+.full{
+    display: flex;
+    flex-direction: row;
+    :first-child{
+        margin-right: 1em;
+    }
+
+}
+
+
+.fullEmployee{
+    margin-top: 30px;
+
+    table, th{
+        border: 1px solid;
+        border-collapse: collapse;
+        font-size: 1.2em;
+    }
+    
+    th:first-child{
+        width: 10em;
+    }
+
+    th:not(th:first-child) {
+        width: 15em;
+    }
+   
+}
+
+
+.pastExperiences{
+    margin-top: 20px;
+}
+
+
+.editInfo{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.iconHolder{
+    margin-left: 3em;
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-color: rgba(0, 0, 0, 0.266);
+
+    &:hover{
+        box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.75);
+        background-color: aliceblue;
+        cursor: pointer;
+    }
+}
+
+
+.deleteExperience{
+    &:hover{
+        cursor: pointer;
+        background-color: #edc7c7;
+    }
+}
+
+.su{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.submit,.undo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.submit{
+    background-color: antiquewhite;
+    font-size: 1.4em;
+    height: 1.5em;
+    margin-right: 0.9em;
+    margin-left: 0.9em;
+    padding: 0.2em;
+    border-radius: 5px;
+
+    &:hover{
+        cursor: pointer;
+        background-color: #edc7c7;
+    }
+}
+
+.undo{
+    background-color: orange;
+    height: 1.8em;
+    padding: 0.2em;
+    border-radius: 5px;
+    &:hover{
+        cursor: pointer;
+        background-color: #ffcb6a;
+    }
+}
+
+.addExperience{
+    &:hover{
+        background-color: wheat;
+        cursor: pointer;
+    }
+}
+
+
+
+.delete{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 0.8em;
+    background-color: #ff0000;
+    width: fit-content;
+    padding: 0.2em;
+    color: wheat;
+    border-radius: 5px;
+
+    &:hover{
+        background-color: #5e0000;
+        cursor: pointer;
+    }
+}
+
+.rolesContainer{
+    margin-left: 40px;
+}
+
+.su{
+    display: flex;
+    flex-direction: column;
+    :nth-child(2){
+        margin-top: 5px;
+        font-size: .7em;
+    }
+}
+
+.employeeDeleteRole{
+    max-width: 50px;
+    text-align: center;
+}
+
+.addRoleEmployee{
+    &:hover{
+        background-color: #FAEBD7;
+        cursor: pointer;
+    }
+}
+
+
+.blueButton{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+.redOrYellowButton{
+    min-width: 10px;
+    text-align: center;
+    max-width: 50px;
+}
+

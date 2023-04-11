@@ -1,0 +1,33 @@
+.roles{
+    border: solid black 1px;
+    th{
+        border: solid black 1px;
+        min-width: 50px;
+        padding: 20px;
+
+    }
+}
+
+.rolesPage{
+    margin-top: 50px;
+    h2 {
+        margin-bottom: 20px;
+        text-decoration: underline;
+    }
+}
+
+
+.cellDeleteRole{
+    &:hover{
+        background-color: rgb(249, 185, 185);
+        cursor: pointer;
+    }
+}
+
+
+.cellAddRole{
+    &:hover{
+        background-color: rgb(159, 171, 233);
+        cursor: pointer;
+    }
+}

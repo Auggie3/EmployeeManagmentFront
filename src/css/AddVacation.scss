@@ -1,0 +1,23 @@
+.addVacationComponent{
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  div{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 1.2em;
+    span{
+      margin-right: 20px;
+    }
+  }
+
+}
+
+.avcDays{
+  width: 167px;
+}
+
+.avcButton{
+  margin-top: 20px;
+}

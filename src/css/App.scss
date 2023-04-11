@@ -1,0 +1,65 @@
+.App{
+  margin-top: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.headerAndFooter{
+  background-color: RGB(8, 76, 97);
+  text-align: center;
+  margin: 0;
+  min-height: 7em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100em;
+
+  h1 {
+    margin: 0;
+    color: #E3B505; 
+  }
+
+  h2 {
+    color: #FDE587;
+  }
+}
+
+
+.header{
+  border-bottom-right-radius: 300px;
+  border-bottom-left-radius: 300px;
+  //display: flex;
+  position: relative;
+}
+
+.footer{
+  border-top-right-radius: 300px;
+  border-top-left-radius: 300px;
+}
+
+
+.middle{
+  flex: 1;
+}
+
+.logout{
+  position:absolute;
+  right: 20vw;
+}
+
+
+.menu{
+  position: absolute;
+  right: -7vw;
+  background-color: #343A40;
+  color: white;
+  padding: 4px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 10px;
+}
