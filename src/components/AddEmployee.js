@@ -10,29 +10,27 @@ const AddEmployee = (props)=>{
         name:"",
         startDate: "",
         position: "",
-        vacationDaysPerYear: 22,
-        vacationDaysAvailable: 22,
-        username: ""
+        username: "",
+        password: ""
     });
 
     const onChangeHandler = (e, variable)=>{
         setState({...state,[variable]: e.target.value});
     }
 
-    const {name, startDate, position, vacationDaysPerYear, vacationDaysAvailable, username} = state;
+    const {name, startDate, position, password, username} = state;
 
     const navigate = useNavigate();
 
 
     const addEmployee = ()=>{
-
-        axios.post("/api/employee", state)
+        let data = state;
+        axios.post("/api/employee", data)
             .then(res => {
-                navigate(`/employees`);
+                navigate(`/edit/${res.data.id}`);
             })
             .catch(err => {
                 console.log(err)
-
             });
     }
 
@@ -56,12 +54,8 @@ const AddEmployee = (props)=>{
                 <th><input type="text" value={username} onChange={(e)=>{onChangeHandler(e,"username")}}/></th>
             </tr>
             <tr>
-                <th>Vacation days available:</th>
-                <th><input type="text" value={vacationDaysAvailable} onChange={(e)=>{onChangeHandler(e,"vacationDaysAvailable")}}/></th>
-            </tr>
-            <tr>
-                <th>Vacation days per year:</th>
-                <th><input type="text" value={vacationDaysPerYear} onChange={(e)=>{onChangeHandler(e,"vacationDaysPerYear")}}/></th>
+                <th>Password:</th>
+                <th><input type="password" placeholder={"Default is '11111111'"} value={password} onChange={(e)=>{onChangeHandler(e,"password")}}/></th>
             </tr>
         </table>
         <Button onClick={addEmployee} className={"btn btn-primary"}>Add employee</Button>

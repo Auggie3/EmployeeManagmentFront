@@ -43,6 +43,7 @@ const FullEmployee = (props) => {
         id,
         name,
         startDate,
+        endDate,
         position,
         pastEmployments,
         vacations,
@@ -78,6 +79,10 @@ const onClickHandler = ()=>{
                 <tr>
                     <th>Start date:</th>
                     <th>{startDate}</th>
+                </tr>
+                <tr>
+                    <th>End date:</th>
+                    <th>{endDate}</th>
                 </tr>
                 <tr>
                     <th>Position:</th>
@@ -137,7 +142,9 @@ const PastExperiencesExist = (props)=>{
                             End date
                         </th>
                     </tr>
-                    {props.pastExperiences.map((pe,index)=>{
+                    {props.pastExperiences
+                        .sort((a,b) => new Date(a.from) - new Date(b.from))
+                        .map((pe,index)=>{
                         return <tr>
                             <th>
                                 {pe.companyName}
@@ -149,7 +156,7 @@ const PastExperiencesExist = (props)=>{
                                 {pe.to}
                             </th>
                         </tr>
-                        
+
                     })}
                 </table>
         </>);

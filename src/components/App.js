@@ -19,6 +19,8 @@ import ChangePassword from "./ChangePassword";
 
 function App() {
 
+    //TODO: maybe filters and pagination
+
   const [login, setLogin] = useState(false);
   const [admin, setAdmin] = useState(false);
 
