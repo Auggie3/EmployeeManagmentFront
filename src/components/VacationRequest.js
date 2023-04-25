@@ -11,7 +11,8 @@ const VacationRequest = (props)=>{
     const allowVacationRequest = ()=>{
         let data = {
             employeeId:employeeId,
-            from: from
+            from: from,
+            to: to
         }
 
         axios.post("/api/employee/vacation/request/allowed", data)

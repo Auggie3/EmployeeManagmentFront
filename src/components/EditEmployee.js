@@ -87,6 +87,7 @@ const EditEmployee = (props) => {
         id,
         name,
         startDate,
+        endDate,
         position,
         pastEmployments,
         vacations,
@@ -146,9 +147,8 @@ const EditEmployee = (props) => {
             id: id,
             name:name,
             startDate: startDate,
+            endDate: endDate,
             position: position,
-            vacationDaysPerYear: vacationDaysPerYear,
-            vacationDaysAvailable: vacationDaysAvailable,
             username: username
         }
 
@@ -156,7 +156,7 @@ const EditEmployee = (props) => {
 
         axios.put("/api/employee",updatedEmployee)
         .then(res =>{
-            console.log("Update employee success");
+            window.alert("Update employee success");
             getData();
         })
         .catch(err =>{
@@ -195,7 +195,7 @@ const EditEmployee = (props) => {
 
 //---------------------------------------ADD VACATION
 
-    const addNewVacation = (vacation) => {
+    const addNewVacation = (vacation, defaultData) => {
         let newVacation = {
             employeeId: id,
             from: vacation.from,
@@ -205,13 +205,17 @@ const EditEmployee = (props) => {
         axios.post("/api/employee/vacation", newVacation)
         .then(res => {
             getData();
+            defaultData(1);
         })
         .catch(err=>{
             console.log(err);
         })
     }
 
-//-----------------------------------------------------------------------------------------------
+
+
+
+    //------------------------------------------------------------------------
     return ( <div className='fullEmployee'>
         <h3>Employee info:</h3>
         
@@ -231,6 +235,10 @@ const EditEmployee = (props) => {
                     <th><input type="date" value={startDate} onChange={(e)=>{onChangeHandler(e,"startDate")}}/></th>
                 </tr>
                 <tr>
+                    <th>End date:</th>
+                    <th><input type="date" value={endDate} onChange={(e)=>{onChangeHandler(e,"endDate")}}/></th>
+                </tr>
+                <tr>
                     <th>Position:</th>
                     <th><input type="text" value={position} onChange={(e)=>{onChangeHandler(e,"position")}}/></th>
                 </tr>
@@ -240,11 +248,11 @@ const EditEmployee = (props) => {
                 </tr>
                 <tr>
                     <th>Vacation days available:</th>
-                    <th><input type="text" value={vacationDaysAvailable} onChange={(e)=>{onChangeHandler(e,"vacationDaysAvailable")}}/></th>
+                    <th>{vacationDaysAvailable}</th>
                 </tr>
                 <tr>
                     <th>Vacation days per year:</th>
-                    <th><input type="text" value={vacationDaysPerYear} onChange={(e)=>{onChangeHandler(e,"vacationDaysPerYear")}}/></th>
+                    <th>{vacationDaysPerYear}</th>
                 </tr>
             </table>
 
@@ -299,6 +307,7 @@ const EditEmployee = (props) => {
             <Vacations vacations = {vacations} deleteVacation = {deleteVacation}/>
             <NewVacationInput addNewVacation = {addNewVacation}/>
         </table>
+
         <div className='delete' onClick={removeEmployee}>Remove employee</div>
     </div> );
 }
@@ -314,7 +323,9 @@ const PastExperiencesExist = (props)=>{
 
     if(props.pastEmployments && props.pastEmployments.length>0){
         return(<>
-                    {props.pastEmployments.map((pe,index)=>{
+                    {props.pastEmployments
+                        .sort((a,b) => new Date(a.from) - new Date(b.from))
+                        .map((pe,index)=>{
                         return <tr>
                             <th>
                                 {pe.companyName}

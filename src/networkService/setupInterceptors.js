@@ -13,6 +13,11 @@ const setupInterceptors = () => {
         ){
             window.location.replace("/expired");
         }
+        else if(err.response.data && err.response.data.errors){
+            window.alert(err.response.data.errors[0].message);
+        }else{
+            window.alert("Error");
+        }
         return Promise.reject(err);
     });
     
